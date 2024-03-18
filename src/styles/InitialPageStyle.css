@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+.home-main {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    margin-top: 32vh;
+    margin-left: 5px;
+    margin-right: 5px;
+    gap: 2vw;
+}
+
+.difficulty-title {
+    color: white;
+    font-size: 65px;
+}
+
+.difficulty-select {
+    /* Reset */
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    font-size: 20px;
+    /* Personalize */
+    width: 20rem;
+    padding: 1rem 4rem 1rem 1rem;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg) no-repeat right 0.8em center / 1.4em,
+        linear-gradient(to left, rgba(255, 255, 255, 0.3) 3em, rgba(255, 255, 255, 0.2) 3em);
+    color: white;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.difficulty-select option {
+    background-color: #544E4C;
+    font-size: 20px;
+}
+
+.difficulty-select option:checked {
+    color: #2A2220;
+}
+
+.difficulty-select option:hover {
+    background-color: black;
+}
+
+button {
+    background-color: #544E4C;
+    width: 20rem;
+    border-radius: 0.25em;
+    border: none;
+    color: white;
+    font-size: 20px;
+    height: 5vh;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+button:hover {
+    background-color: #6A6463;
+    width: 20.3rem;
+    height: 5.3vh;
+    transition: 500ms;
+}
