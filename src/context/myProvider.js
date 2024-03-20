@@ -19,24 +19,33 @@ function Provider({ children }) {
         setIsInstructions(true)
     }
 
+    const onClickNextDifficulty = () => {
+        setIsStarted(false);
+        setIsFinished(false)
+    }
+
     const listData = useMemo(() => ({
         isStarted,
         difficulty,
         isFinished,
         isInstructions,
+        setIsInstructions,
         setIsFinished,
         setDifficulty,
         selectDifficulty,
         onClickStart,
         onClickInstructions,
+        onClickNextDifficulty,
     }), [
         isStarted,
         difficulty,
         isFinished,
         isInstructions,
+        setIsInstructions,
         setIsFinished,
         onClickStart,
         onClickInstructions,
+        onClickNextDifficulty,
     ])
     return <Context.Provider value={listData}>{children}</Context.Provider>;
 }

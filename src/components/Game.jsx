@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import Context from "../context/myContext";
 import circles from "../mocks/circlesMock";
-import lowestCircleNumber from "../utils/towerFunctions"
+import towerFunctions from "../utils/towerFunctions"
 import '../styles/GamePageStyle.css'
+import Finished from "./Finished";
 
 function Game() {
 
@@ -14,13 +15,15 @@ function Game() {
   const [firstSelected, setFirstSelected] = useState();
   const [secondSelected, setSecondSelected] = useState();
   const [thirdSelected, setThirdSelected] = useState();
+  const [maxArray, setMaxArray] = useState(0)
   const [score, setScore] = useState(0);
   const [record, setRecord] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const { setIsFinished } = useContext(Context);
+  const { setIsFinished, isFinished, difficulty } = useContext(Context);
 
   const recordControl = (finished) => {
-    const recordStorage = localStorage.getItem("record") || null
+    const recordStorage = localStorage.getItem(`record${difficulty}`) || null
     if (!recordStorage) {
       setRecord(0)
     }
@@ -29,16 +32,37 @@ function Game() {
     }
     if (finished) {
       if (Number(recordStorage) === 0) {
-        return localStorage.setItem("record", JSON.stringify(score))
+        return localStorage.setItem(`record${difficulty}`, JSON.stringify(score))
       }
       const scoreChecker = score < Number(recordStorage)
-      if (scoreChecker) localStorage.setItem("record", JSON.stringify(score))
+      if (scoreChecker) localStorage.setItem(`record${difficulty}`, JSON.stringify(score))
     }
   }
 
   useEffect(() => {
-    setFirstTower(circles)
+    if (isFinished) {
+      setFirstTower([])
+      setSecondTower([])
+      setThirdTower([])
+    }
+  }, [isFinished])
+
+  useEffect(() => {
     recordControl()
+    let difficultyNumber = 0
+    if (difficulty === "easy") {
+      setMaxArray(5)
+      difficultyNumber = 5
+    } else if (difficulty === "normal") {
+      setMaxArray(6)
+      difficultyNumber = 6
+    } else {
+      setMaxArray(8)
+      difficultyNumber = 8
+    }
+    const circlesDifficulty = towerFunctions.arrayLimiter(difficultyNumber, circles)
+    setFirstTower(circlesDifficulty)
+    setIsLoaded(true)
   }, [])
 
   useEffect(() => {
@@ -65,8 +89,7 @@ function Game() {
   }, [selected, firstSelected, secondSelected, thirdSelected, lastSelected])
 
   useEffect(() => {
-    if (secondTower.length === 6 || thirdTower.length === 6) {
-      console.log("oi")
+    if ((secondTower.length === maxArray && isLoaded) || (thirdTower.length === maxArray && isLoaded)) {
       recordControl("finished");
       setIsFinished(true);
     }
@@ -86,7 +109,7 @@ function Game() {
         setFirstTower([selected, ...firstTower])
         return cleanSelecteds()
       }
-      const { lowest } = lowestCircleNumber(firstTower)
+      const { lowest } = towerFunctions.lowestCircleNumber(firstTower)
       if (selected.size < lowest.size) {
         setFirstTower([selected, ...firstTower])
         return cleanSelecteds()
@@ -99,7 +122,7 @@ function Game() {
       }
     }
     if (!selected) {
-      const { reverse, lowest } = lowestCircleNumber(firstTower)
+      const { reverse, lowest } = towerFunctions.lowestCircleNumber(firstTower)
       setSelected(lowest);
       setFirstSelected(lowest);
       setFirstTower(reverse);
@@ -111,7 +134,7 @@ function Game() {
         setSecondTower([selected, ...secondTower])
         return cleanSelecteds()
       }
-      const { lowest } = lowestCircleNumber(secondTower)
+      const { lowest } = towerFunctions.lowestCircleNumber(secondTower)
       if (selected.size < lowest.size) {
         setSecondTower([selected, ...secondTower])
         return cleanSelecteds()
@@ -124,7 +147,7 @@ function Game() {
       }
     }
     if (!selected) {
-      const { reverse, lowest } = lowestCircleNumber(secondTower)
+      const { reverse, lowest } = towerFunctions.lowestCircleNumber(secondTower)
       setSelected(lowest);
       setSecondSelected(lowest);
       setSecondTower(reverse);
@@ -136,7 +159,7 @@ function Game() {
         setThirdTower([selected, ...thirdTower])
         return cleanSelecteds()
       }
-      const { lowest } = lowestCircleNumber(thirdTower)
+      const { lowest } = towerFunctions.lowestCircleNumber(thirdTower)
       if (selected.size < lowest.size) {
         setThirdTower([selected, ...thirdTower])
         return cleanSelecteds()
@@ -149,7 +172,7 @@ function Game() {
       }
     }
     if (!selected) {
-      const { reverse, lowest } = lowestCircleNumber(thirdTower)
+      const { reverse, lowest } = towerFunctions.lowestCircleNumber(thirdTower)
       setSelected(lowest);
       setThirdSelected(lowest);
       setThirdTower(reverse.sort());
@@ -167,22 +190,23 @@ function Game() {
       <div className="main-towers">
         <div className="tower-game">
           <button id="first" type="button" onClick={onClickFirstTower} />
-          {firstSelected && <div className={selected.className + " selected"} id="selected" style={{ backgroundColor: selected.color, width: selected.size * 4 + 20 + "px" , height: "10px" }} />}
-          {firstTower?.map((e) => (<div className={e.className} id={e.color} style={{ backgroundColor: e.color, width: e.size * 4 + 20 + "px", height: "10px" }} key={e.size} />))}
+          {firstSelected && <div className={selected.className + " selected"} id="selected" style={{ backgroundColor: selected.color, width: selected.size * 8 + 10 + "px", height: "10px" }} />}
+          {firstTower?.map((e) => (<div className={e.className} id={e.color} style={{ backgroundColor: e.color, width: e.size * 8 + 10 + "px", height: "10px" }} key={e.size} />))}
         </div>
         <div className="tower-game">
           <button id="second" type="button" onClick={onClickSecondTower} />
-          {secondSelected && <div className={selected.className + " selected"} id="selected" style={{ backgroundColor: selected.color, width: selected.size * 4 + 20 + "px", height: "10px" }} />}
-          {secondTower?.map((e) => (<div className={e.className} id={e.color} style={{ backgroundColor: e.color, width: e.size * 4 + 20 + "px", height: "10px"  }} key={e.size} />))}
+          {secondSelected && <div className={selected.className + " selected"} id="selected" style={{ backgroundColor: selected.color, width: selected.size * 8 + 10 + "px", height: "10px" }} />}
+          {secondTower?.map((e) => (<div className={e.className} id={e.color} style={{ backgroundColor: e.color, width: e.size * 8 + 10 + "px", height: "10px" }} key={e.size} />))}
         </div>
         <div className="tower-game">
           <button id="third" type="button" onClick={onClickThirdTower} />
-          {thirdSelected && <div className={selected.className + " selected"} id="selected" style={{ backgroundColor: selected.color, width: selected.size * 4 + 20 + "px", height: "10px" }} />}
-          {thirdTower?.map((e) => (<div className={e.className} id={e.color} style={{ backgroundColor: e.color, width: e.size * 4 + 20 + "px", height: "10px" }} key={e.size} />))}
+          {thirdSelected && <div className={selected.className + " selected"} id="selected" style={{ backgroundColor: selected.color, width: selected.size * 8 + 10 + "px", height: "10px" }} />}
+          {thirdTower?.map((e) => (<div className={e.className} id={e.color} style={{ backgroundColor: e.color, width: e.size * 8 + 10 + "px", height: "10px" }} key={e.size} />))}
         </div>
       </div>
       <hr className="table-bottom" />
       <div className="background-image" />
+      {isFinished && <Finished />}
     </div>
   );
 }

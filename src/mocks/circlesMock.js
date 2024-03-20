@@ -26,6 +26,16 @@ const circles = [
     },
     {
         size: 6,
+        color: "orange",
+        className: "circle-color"
+    },
+    {
+        size: 7,
+        color: "orange",
+        className: "circle-color"
+    },
+    {
+        size: 8,
         color: "purple",
         className: "circle-color"
     },

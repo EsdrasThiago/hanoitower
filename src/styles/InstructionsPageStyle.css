@@ -1,0 +1,109 @@
+.instruction-left-button {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+}
+
+.instruction-right-button {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+.instruction-main {
+    text-align: center;
+    width: 80vw;
+    margin: auto;
+}
+
+.instruction-title {
+    color: white;
+    font-size: 70px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.instruction-text {
+    color: white;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px black;
+}
+
+@media (max-width: 673px) {
+    .instruction-title {
+        font-size: 50px;
+    }
+
+    .instruction-text {
+        font-size: 30px;
+    }
+
+    .instruction-left-button {
+        position: absolute;
+        left: 15px;
+        bottom: 15px;
+        font-size: 14px;
+        width: 10rem;
+    }
+
+    .instruction-left-button:hover {
+        background-color: #544E4C;
+        width: 10.5rem;
+        height: 5vh;
+        transition: 500ms;
+    }
+    
+    .instruction-right-button {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        font-size: 14px;
+        width: 10rem;
+    }
+
+    .instruction-right-button:hover {
+        background-color: #544E4C;
+        width: 10.5rem;
+        height: 5vh;
+        transition: 500ms;
+    }
+}
+
+@media (max-width: 359px) {
+    .instruction-title {
+        font-size: 30px;
+    }
+
+    .instruction-text {
+        font-size: 20px;
+    }
+
+    .instruction-left-button {
+        position: absolute;
+        left: 15px;
+        bottom: 15px;
+        font-size: 13px;
+        width: 5rem;
+    }
+
+    .instruction-left-button:hover {
+        background-color: #544E4C;
+        width: 5.5rem;
+        height: 5vh;
+        transition: 500ms;
+    }
+    
+    .instruction-right-button {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        font-size: 13px;
+        width: 5rem;
+    }
+
+    .instruction-right-button:hover {
+        background-color: #544E4C;
+        width: 5.5rem;
+        height: 5vh;
+        transition: 500ms;
+    }
+}

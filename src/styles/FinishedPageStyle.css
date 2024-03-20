@@ -1,0 +1,30 @@
+.finished-main {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 200px;
+    z-index: 3;
+    background-color: #544e4ccc;
+    box-shadow: 2px 5px 10px black;
+    text-shadow: 2px 2px 2px black;
+    text-align: center;
+    color: white;
+    border-radius: 25px;
+}
+
+.finished-main button {
+    background-color: #332f2ecc;
+    text-shadow: 2px 2px 2px black;
+}
+
+@media (max-width: 502px) {
+    .finished-main {
+        width: 300px;
+        height: 150px;
+        font-size: 10px;
+    }
+}

@@ -10,7 +10,7 @@ function StartGame() {
     <div className='home-main'>
       <label htmlFor="difficulty-select" className="difficulty-title">Escolha uma dificuldade:</label>
       <select name="difficulty" onChange={selectDifficulty} id='difficulty-select' className="difficulty-select">
-        <option className="teste" value="easy">Fácil</option>
+        <option value="easy">Fácil</option>
         <option value="normal">Normal</option>
         <option value="hard">Dificil</option>
       </select>
