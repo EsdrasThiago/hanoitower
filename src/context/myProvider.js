@@ -21,7 +21,8 @@ function Provider({ children }) {
 
     const onClickNextDifficulty = () => {
         setIsStarted(false);
-        setIsFinished(false)
+        setIsFinished(false);
+        setDifficulty("easy")
     }
 
     const listData = useMemo(() => ({
