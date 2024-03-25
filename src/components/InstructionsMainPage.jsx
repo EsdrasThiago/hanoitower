@@ -7,17 +7,23 @@ function InstructionsMainPage() {
 
   const [page, setPage] = useState(0);
 
-  const { onClickStart, setIsInstructions } = useContext(Context);
+  const { onClickStart, setIsInstructions, setClicked } = useContext(Context);
 
   const onClickNextPage = () => {
+    setClicked(false)
+    setClicked(true)
     setPage(page+1)
   }
 
   const onClickLastPage = () => {
+    setClicked(false)
+    setClicked(true)
     setPage(page-1)
   }
 
   const onClickReturnHome = () => {
+    setClicked(false)
+    setClicked(true)
     setIsInstructions(false)
   }
 

@@ -6,20 +6,27 @@ function Provider({ children }) {
     const [isStarted, setIsStarted] = useState(false);
     const [isFinished, setIsFinished] = useState(false);
     const [isInstructions, setIsInstructions] = useState(false);
+    const [clicked, setClicked] = useState(false);
 
     const selectDifficulty = ({ target: { value }}) => {
         setDifficulty(value);
     }
 
     const onClickStart = () => {
+        setClicked(false)
+        setClicked(true)
         setIsStarted(true);
     }
 
     const onClickInstructions = () => {
+        setClicked(false)
+        setClicked(true)
         setIsInstructions(true)
     }
 
     const onClickNextDifficulty = () => {
+        setClicked(false)
+        setClicked(true)
         setIsStarted(false);
         setIsFinished(false);
         setDifficulty("easy")
@@ -30,7 +37,9 @@ function Provider({ children }) {
         difficulty,
         isFinished,
         isInstructions,
+        clicked,
         setIsInstructions,
+        setClicked,
         setIsFinished,
         setDifficulty,
         selectDifficulty,
@@ -42,7 +51,9 @@ function Provider({ children }) {
         difficulty,
         isFinished,
         isInstructions,
+        clicked,
         setIsInstructions,
+        setClicked,
         setIsFinished,
         onClickStart,
         onClickInstructions,
