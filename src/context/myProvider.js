@@ -29,6 +29,7 @@ function Provider({ children }) {
         setClicked(true)
         setIsStarted(false);
         setIsFinished(false);
+        setIsInstructions(false)
         setDifficulty("easy")
     }
 

@@ -1,13 +1,24 @@
 .instruction-left-button {
     position: absolute;
+    background-color: #3e6b8170;
+    border: solid black 2px;
     left: 15px;
     bottom: 15px;
+    z-index: 1;
 }
 
 .instruction-right-button {
     position: absolute;
+    background-color: #3e6b8170;
+    border: solid black 2px;
     right: 15px;
     bottom: 15px;
+    z-index: 1;
+}
+
+.instruction-right-button:hover, .instruction-left-button:hover {
+    background-color: #3e6b8170;
+    border: solid black 2px;
 }
 
 .instruction-main {
@@ -17,15 +28,45 @@
 }
 
 .instruction-title {
-    color: white;
+    color: #98B4C2;
     font-size: 70px;
     text-shadow: 2px 2px 2px black;
+    position: relative;
+    z-index: 1;
 }
 
 .instruction-text {
-    color: white;
+    color: #98B4C2;
     font-size: 40px;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: 2px 2px 2px #000000;
+    position: relative;
+    z-index: 1;
+}
+
+.instruction-gif {
+    position: relative;
+    width: 400px;
+    border-radius: 25px;
+    z-index: 1;
+    border: solid #98B4C2 3px;
+    transition: 500ms;
+}
+
+.instruction-gif:hover {
+    width: 420px;
+    transition: 500ms;
+}
+
+.instruction-background-image {
+    position: absolute;
+    background-image: url('../images/e1e7a33173d81a85444942e403bef217.gif');
+    background-size: cover;
+    filter: blur(8px);
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
 }
 
 @media (max-width: 673px) {
@@ -51,7 +92,7 @@
         height: 5vh;
         transition: 500ms;
     }
-    
+
     .instruction-right-button {
         position: absolute;
         right: 15px;
@@ -64,6 +105,15 @@
         background-color: #544E4C;
         width: 10.5rem;
         height: 5vh;
+        transition: 500ms;
+    }
+
+    .instruction-gif {
+        width: 280px;
+    }
+
+    .instruction-gif:hover {
+        width: 300px;
         transition: 500ms;
     }
 }
@@ -91,7 +141,7 @@
         height: 5vh;
         transition: 500ms;
     }
-    
+
     .instruction-right-button {
         position: absolute;
         right: 15px;
@@ -104,6 +154,15 @@
         background-color: #544E4C;
         width: 5.5rem;
         height: 5vh;
+        transition: 500ms;
+    }
+
+    .instruction-gif {
+        width: 200px;
+    }
+
+    .instruction-gif:hover {
+        width: 220px;
         transition: 500ms;
     }
 }

@@ -22,7 +22,7 @@ body {
 
 .background-image {
     position: absolute;
-    background-image: url("../images/7270229.jpg");
+    background-image: url("../images/gifhanoi.gif");
     background-size: cover;
     filter: blur(4px);
     top: 0px;
@@ -33,7 +33,7 @@ body {
 
 .table-bottom {
     position: relative;
-    background-color: #563A3B;
+    background-color: #442921;
     width: 30vw;
     margin-top: 0px;
     height: 20px;
@@ -77,7 +77,7 @@ body {
 }
 
 .tower-game {
-    background-color: #563A3B;
+    background-color: #442921;
     width: 10px;
     height: 200px;
     display: flex;
@@ -96,7 +96,7 @@ body {
     border-radius: 10px;
     z-index: 1;
     margin-top: 2px;
-    border: solid 0.2px black;
+    border: solid 0.2px #000000a6;
 }
 
 /* .selected {
@@ -129,10 +129,10 @@ body {
     width: 300px;
     text-align: center;
     border: solid;
-    border-color: #423433;
+    border-color: black;
     text-shadow: 2px 2px 2px black;
     box-shadow: 2px 5px 10px;
-    color: #463636;
+    color: black;
     z-index: 1;
 }
 
@@ -149,10 +149,10 @@ body {
     width: 300px;
     text-align: center;
     border: solid;
-    border-color: #423433;
+    border-color: black;
     text-shadow: 2px 2px 2px black;
     box-shadow: 2px 5px 10px;
-    color: #463636;
+    color: black;
     z-index: 1;
 }
 

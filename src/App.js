@@ -32,8 +32,8 @@ function App() {
 
   return (
     <div id='main-page'>
-      {isStarted && <audio src={gameMusic} id='hanoimusic' autoPlay={true} type="audio/mpeg" />}
-      {isInstructions && !isStarted && <audio src={tutorialMusic} id='tutorialmusic' autoPlay={true} type="audio/mpeg"/>}
+      {isStarted && <audio loop={true} src={gameMusic} id='hanoimusic' autoPlay={true} type="audio/mpeg" />}
+      {isInstructions && !isStarted && <audio loop={true} src={tutorialMusic} id='tutorialmusic' autoPlay={true} type="audio/mpeg"/>}
       {/* {clicked && <audio src={clickSound} id='click' autoPlay={true} type="audio/mpeg"/>} */}
       {!isStarted && !isInstructions && <StartGame />}
       {isStarted && <Game />}

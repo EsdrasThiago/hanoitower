@@ -1,42 +1,42 @@
 const circles = [
     {
         size: 1,
-        color: "red",
+        color: "#FDEE91",
         className: "circle-color"
     },
     {
         size: 2,
-        color: "blue",
+        color: "#faeb87",
         className: "circle-color"
     },
     {
         size: 3,
-        color: "yellow",
+        color: "#fdeb71",
         className: "circle-color"
     },
     {
         size: 4,
-        color: "green",
+        color: "#ffe95b",
         className: "circle-color"
     },
     {
         size: 5,
-        color: "orange",
+        color: "#ffe748",
         className: "circle-color"
     },
     {
         size: 6,
-        color: "orange",
+        color: "#fde337",
         className: "circle-color"
     },
     {
         size: 7,
-        color: "orange",
+        color: "#fcdf24",
         className: "circle-color"
     },
     {
         size: 8,
-        color: "purple",
+        color: "#ffde08",
         className: "circle-color"
     },
 ]

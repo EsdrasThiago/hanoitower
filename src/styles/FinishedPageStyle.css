@@ -8,16 +8,17 @@
     width: 500px;
     height: 200px;
     z-index: 3;
-    background-color: #544e4ccc;
+    background-color: #4429218c;
     box-shadow: 2px 5px 10px black;
     text-shadow: 2px 2px 2px black;
+    border: solid black 2px;
     text-align: center;
     color: white;
     border-radius: 25px;
 }
 
 .finished-main button {
-    background-color: #332f2ecc;
+    background-color: #4b2d24;
     text-shadow: 2px 2px 2px black;
 }
 

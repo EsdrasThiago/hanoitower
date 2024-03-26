@@ -30,11 +30,13 @@ function InstructionsMainPage() {
     return (
       <div className="instruction-main">
         <h1 className="instruction-title">{instructions[page].title}</h1>
+        <img className="instruction-gif" draggable={false} src={instructions[page].gif} alt={`gif ${instructions[page].title}`} />
         <p className="instruction-text">{instructions[page].text}</p>
-        {instructions[page].button && <button type="button" className="instruction-start-button" onClick={ onClickStart }>Jogar</button>}
+        {instructions[page].button && <button type="button" className="instruction-start-button instruction-right-button" onClick={ onClickStart }>Jogar</button>}
         {page === 0 && <button type="button" className="instruction-left-button" onClick={onClickReturnHome}>Página Inicial</button>}
         {page !== 0 && <button type="button" className="instruction-left-button" onClick={onClickLastPage}>Página Anterior</button>}
-        {page !== 4 && <button type="button" className="instruction-right-button" onClick={onClickNextPage}>Proxima Página</button>}  
+        {page !== 4 && <button type="button" className="instruction-right-button" onClick={onClickNextPage}>Proxima Página</button>}
+        <div className="instruction-background-image" />
       </div>
     );
   }
