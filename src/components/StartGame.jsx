@@ -8,6 +8,11 @@ function StartGame() {
 
   return (
     <div className='home-main'>
+      <div className="table" />
+      <div className='tower' />
+      <div className='circle-1' />
+      <div className='circle-2' />
+      <div className='circle-3' />
       <label htmlFor="difficulty-select" className="difficulty-title">Escolha uma dificuldade:</label>
       <select name="difficulty" onChange={selectDifficulty} id='difficulty-select' className="difficulty-select">
         <option value="easy">Fácil</option>

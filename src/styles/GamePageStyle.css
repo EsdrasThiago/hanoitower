@@ -156,6 +156,16 @@ body {
     z-index: 1;
 }
 
+.game-back-button {
+    position: absolute;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    bottom: 20px;
+    background-color: #544e4c36;
+    z-index: 1;
+}
+
 .points h1 {
     color: white;
 }

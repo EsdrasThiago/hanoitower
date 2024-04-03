@@ -20,7 +20,7 @@ function Game() {
   const [record, setRecord] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const { setIsFinished, isFinished, difficulty } = useContext(Context);
+  const { setIsFinished, isFinished, difficulty, onClickNextDifficulty } = useContext(Context);
 
   const recordControl = (finished) => {
     const recordStorage = localStorage.getItem(`record${difficulty}`) || null
@@ -187,6 +187,7 @@ function Game() {
       <div className="points">
         <h1>Pontuação - {score} -</h1>
       </div>
+      {!isFinished && <button type="button" className="game-back-button" onClick={onClickNextDifficulty}>Voltar ao Menu</button>}
       <div className="main-towers">
         <div className="tower-game">
           <button id="first" type="button" onClick={onClickFirstTower} />

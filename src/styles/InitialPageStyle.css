@@ -50,6 +50,10 @@
 .difficulty-select option:hover {
     background-color: black;
 }
+/* 
+.table {
+    background-color: gray;
+} */
 
 button {
     background-color: #544E4C;
