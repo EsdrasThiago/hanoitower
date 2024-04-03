@@ -8,8 +8,8 @@ function StartGame() {
 
   return (
     <div className='home-main'>
-      <div className="table" />
       <div className='tower' />
+      <div className="table" />
       <div className='circle-1' />
       <div className='circle-2' />
       <div className='circle-3' />

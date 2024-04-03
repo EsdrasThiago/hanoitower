@@ -13,6 +13,8 @@
     margin-left: 5px;
     margin-right: 5px;
     gap: 2vw;
+    animation-name: coming-page;
+    animation-duration: 2.5s;
 }
 
 .difficulty-title {
@@ -50,10 +52,81 @@
 .difficulty-select option:hover {
     background-color: black;
 }
-/* 
+
 .table {
-    background-color: gray;
-} */
+    position: absolute;
+    background-color: #442921;
+    border: solid black 0.2px;
+    width: 100px;
+    height: 10px;
+    top: 250px;
+    border-radius: 25px;
+    animation-name: coming-page;
+    animation-duration: 2.5s;
+}
+
+.tower {
+    position: absolute;
+    top: 160px;
+    background-color: #442921;
+    border: solid black 0.2px;
+    width: 10px;
+    height: 100px;
+    border-radius: 25px;
+    opacity: 0%;
+    animation-name: coming-page;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+    animation-delay: 1.5s;
+}
+
+.circle-1 {
+    position: absolute;
+    height: 10px;
+    width: 40px;
+    top: 170px;
+    background-color: #FDEE91;
+    border: solid 0.2px #000000a6;
+    border-radius: 25px;
+    rotate: 7deg;
+    opacity: 0%;
+    animation-name: coming-page, circle-1-coming;
+    animation-fill-mode: both;
+    animation-duration: 2s;
+    animation-delay: 4s;
+}
+
+.circle-2 {
+    position: absolute;
+    height: 10px;
+    width: 60px;
+    top: 200px;
+    background-color: #faeb87;
+    border: solid 0.2px #000000a6;
+    border-radius: 25px;
+    rotate: -11deg;
+    opacity: 0%;
+    animation-name: coming-page, circle-2-coming;
+    animation-fill-mode: both;
+    animation-duration: 2s;
+    animation-delay: 3s;
+}
+
+.circle-3 {
+    position: absolute;
+    height: 10px;
+    width: 80px;
+    top: 230px;
+    background-color: #fdeb71;
+    border: solid 0.2px #000000a6;
+    border-radius: 25px;
+    rotate: 11deg;
+    opacity: 0%;
+    animation-name: coming-page, circle-3-coming;
+    animation-fill-mode: both;
+    animation-duration: 2s;
+    animation-delay: 2s;
+}
 
 button {
     background-color: #544E4C;
@@ -77,5 +150,45 @@ button:hover {
 @media (max-width: 448px) {
     .difficulty-title {
         font-size: 40px;
+    }
+}
+
+@keyframes coming-page {
+    from {
+        opacity: 0%;
+    }
+    
+    to {
+        opacity: 100%;
+    }
+}
+
+@keyframes circle-3-coming {
+    from {
+        top: 200px;
+    }
+
+    to {
+        top: 230px;
+    }
+}
+
+@keyframes circle-2-coming {
+    from {
+        top: 170px;
+    }
+    
+    to {
+        top: 200px;
+    }
+}
+
+@keyframes circle-1-coming {
+    from {
+        top: 140px;
+    }
+
+    to {
+        top: 170px;
     }
 }
