@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import instructions from "../mocks/instructionsMock";
 import Context from "../context/myContext";
 import '../styles/InstructionsPageStyle.css'
+import clickSound from "../audios/click.mp3"
 
 function InstructionsMainPage() {
 
@@ -10,18 +11,24 @@ function InstructionsMainPage() {
   const { onClickStart, setIsInstructions, setClicked } = useContext(Context);
 
   const onClickNextPage = () => {
+    const sound = new Audio(clickSound)
+    sound.play()
     setClicked(false)
     setClicked(true)
     setPage(page+1)
   }
 
   const onClickLastPage = () => {
+    const sound = new Audio(clickSound)
+    sound.play()
     setClicked(false)
     setClicked(true)
     setPage(page-1)
   }
 
   const onClickReturnHome = () => {
+    const sound = new Audio(clickSound)
+    sound.play()
     setClicked(false)
     setClicked(true)
     setIsInstructions(false)
